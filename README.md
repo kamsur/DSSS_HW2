@@ -49,7 +49,7 @@ Exercise 2 of Data Science Survival Skills course at FAU Erlangen-Nürnberg
 ## Task 5/5
    ● Make your repository pip installable. Therefore, you need the following structure. Add all of the missing files to your repository with a meaningful commit message.
 
-   ● Run “pip install git+<link-to-repository.git>”.
+   ● Run `pip install git+<link-to-repository.git>`.
 
    ● Afterwards, run “math_quiz” in your command line and solve some math tasks :)
 
