@@ -90,16 +90,28 @@ def apply_arithmetic_operation(n1, n2, o):
 
 def math_quiz():
     score = 0
-    n_questions = 3
+    n_questions = 6
+    n1 = 0
+    n1_new = 0
+    n2 = 0
+    n2_new = 0
+    o = ""
+    o_new = ""
 
     print("Welcome to the Math Quiz Game!")
     print("You will be presented with math problems.")
     print("Try to provide correct answers for a high score.")
 
     for _ in range(n_questions):
-        n1 = generate_integer_in_range(1, 10)
-        n2 = generate_integer_in_range(1, 5.5)
-        o = generate_arithmetic_operation()
+        while n1_new == n1:
+            n1_new = generate_integer_in_range(1, 10)
+        n1 = n1_new
+        while n2_new == n2:
+            n2_new = generate_integer_in_range(1, 5.5)
+        n2 = n2_new
+        while o_new == o:
+            o_new = generate_arithmetic_operation()
+        o = o_new
 
         PROBLEM, ANSWER = apply_arithmetic_operation(n1, n2, o)
         print(f"\nQuestion: {PROBLEM}")
