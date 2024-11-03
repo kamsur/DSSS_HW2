@@ -1,9 +1,5 @@
 import unittest
-from math_quiz import (
-    generate_integer_in_range,
-    generate_arithmetic_operation,
-    apply_arithmetic_operation,
-)
+import math_quiz as mq
 
 
 class TestMathGame(unittest.TestCase):
@@ -78,7 +74,7 @@ class TestMathGame(unittest.TestCase):
         ]
         for min_val, max_val in num_ranges:
             for _ in range(1000):  # Test a large number of random values
-                rand_num = generate_integer_in_range(min_val, max_val)
+                rand_num = mq.generate_integer_in_range(min_val, max_val)
                 fail_msg = f"{rand_num} is not in ({min_val}, {max_val})"
                 self.assertTrue(min_val <= rand_num <= max_val, fail_msg)
 
@@ -88,7 +84,7 @@ class TestMathGame(unittest.TestCase):
             fail_msg = f"ValueError not raised for ({min_val}, {max_val})"
             # Display the error message if the test fails
             with self.assertRaises(ValueError, msg=fail_msg):
-                generate_integer_in_range(min_val, max_val)
+                mq.generate_integer_in_range(min_val, max_val)
 
         # Test if ValueError is raised for ranges with no integers
         num_ranges = [
@@ -107,7 +103,7 @@ class TestMathGame(unittest.TestCase):
             fail_msg = f"ValueError not raised for ({min_val}, {max_val})"
             # Display the error message if the test fails
             with self.assertRaises(ValueError, msg=fail_msg):
-                generate_integer_in_range(min_val, max_val)
+                mq.generate_integer_in_range(min_val, max_val)
 
         # Test if TypeError is raised for invalid input types
         num_ranges = [
@@ -139,12 +135,12 @@ class TestMathGame(unittest.TestCase):
             fail_msg = f"TypeError not raised for ({min_val}, {max_val})"
             # Display the error message if the test fails
             with self.assertRaises(TypeError, msg=fail_msg):
-                generate_integer_in_range(min_val, max_val)
+                mq.generate_integer_in_range(min_val, max_val)
 
     def test_generate_arithmetic_operation(self):
         # Test if the generated arithmetic operation is valid
         for _ in range(1000):  # Test a large number of random values
-            operation = generate_arithmetic_operation()
+            operation = mq.generate_arithmetic_operation()
             fail_msg = f"Invalid operation: {operation}"
             self.assertIn(operation, ["+", "-", "*"], fail_msg)
 
@@ -156,8 +152,8 @@ class TestMathGame(unittest.TestCase):
             (5, 2, "*", "5 * 2", 10),
         ]
 
-        for num1, num2, operator, expected_prob, expected_ans in test_cases:
-            problem, answer = apply_arithmetic_operation(num1, num2, operator)
+        for n1, n2, operator, expected_prob, expected_ans in test_cases:
+            problem, answer = mq.apply_arithmetic_operation(n1, n2, operator)
             fail_msg = f"Expected Problem: {expected_prob}, Given: {problem}"
             self.assertEqual(problem, expected_prob, fail_msg)
             fail_msg = f"Expected Answer: {expected_ans}, Given: {answer}"
@@ -194,11 +190,11 @@ class TestMathGame(unittest.TestCase):
             (5, 2, -9.5),
         ]
 
-        for num1, num2, operator in params:
-            fail_msg = f"TypeError not raised for ({num1}, {num2}, {operator})"
+        for n1, n2, operator in params:
+            fail_msg = f"TypeError not raised for ({n1}, {n2}, {operator})"
             # Display the error message if the test fails
             with self.assertRaises(TypeError, msg=fail_msg):
-                apply_arithmetic_operation(num1, num2, operator)
+                mq.apply_arithmetic_operation(n1, n2, operator)
 
         # Test if ValueError is raised for invalid operators
         operators = [" ", "", "a", " x", "y ", "v 1 ", "1", " 1.0"]
@@ -206,7 +202,7 @@ class TestMathGame(unittest.TestCase):
             fail_msg = f"ValueError not raised for {operator}"
             # Display the error message if the test fails
             with self.assertRaises(ValueError, msg=fail_msg):
-                apply_arithmetic_operation(5, 2, operator)
+                mq.apply_arithmetic_operation(5, 2, operator)
 
 
 if __name__ == "__main__":
