@@ -104,6 +104,7 @@ def math_quiz():
         PROBLEM, ANSWER = apply_arithmetic_operation(n1, n2, o)
         print(f"\nQuestion: {PROBLEM}")
         useranswer = input("Your answer: ")
+        useranswer = useranswer.strip()
         while type(useranswer) is not float:
             # Keep asking for a number until the user provides one
             try:
