@@ -41,5 +41,7 @@ Exercise 2 of Data Science Survival Skills course at FAU Erlangen-Nürnberg
 
 ## Task 4/5
    ● Write three unit tests in the file “tests_math_quiz.py” for the three functions from “math_quiz.py” (function_A, function_B, function_C → the functions will probably no longer be called like this at this point)
+   
    ● Add, commit and push the file to your GitHub repository.
+   
    **→ Slide**: Screenshots of your unit tests code.
